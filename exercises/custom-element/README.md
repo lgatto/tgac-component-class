@@ -1,33 +1,30 @@
-# Component Design Class
+# <spark-line>
 
 ## Install
 
 ```sh
-cd path/to/this/repo
-npm install
+npm install --save sparkline
 ```
 
-## Structure
+If you have d3 on the page, there is a `spark-line-no-d3.js` build. Additionally you'll need a Web Components enabled browser, or the `webcomponents.js` polyfill.
 
-```sh
-# here are the slides, in HTML format, yours to take home and enjoy! simply open slides/index.html in your favourite brower
-./slides 
+## Example
 
-# whenever we're working on an exercise together, I'll point you to an exercise subfolder
-./exercises
+To include a sparkline, put this anywhere on the page, before or after you have loaded the sparkline.js library:
+
+```html
+<spark-line
+	id="GOOG"
+	color="blue"
+	width=200
+	height=30
+	>
+</spark-line>
 ```
 
-## Exercises
+Data is provided via a data setter. It accepts promises or existing data, so regardless if your data is already loaded, cached, or on an exernal server sparkline.js can handle it!
 
-Each exercise is a subfolder. Exercises have an `exercise.js` file.
-
-So, for instance, to run the first exercise:
-
-```sh
-cd path/where/you/downloaded/this/repo
-cd exercises/custom-elements
-
-open index.html
-# edit exercise.js
+```js
+document.querySelector("spark-line")
+	.data = $.getJSON("./some/spark/data.json");
 ```
-
